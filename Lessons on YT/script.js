@@ -1,12 +1,12 @@
-const getTodos = () =>{  
+const getTodos = (callback) =>{  
     const request = new XMLHttpRequest();
     
     request.addEventListener('readystatechange', () => {
         // console.log(request, request.readystate);
         if(request.readyState === 4 && request.status === 200){
-            console.log(request, request.responseText);
+            callback(undefined, request.responseText);
         } else if(request.readyState === 4) {
-            console.log('could not fetch the data');
+            callback('could not fetch data', undefined);
         }
     });
     
@@ -15,4 +15,12 @@ const getTodos = () =>{
     
 };
 
-getTodos();
+getTodos((err, data) => {
+    console.log('callback fired');
+    if(err){
+        console.log(err);
+    }
+    else {
+        console.log(data);
+    }
+});
