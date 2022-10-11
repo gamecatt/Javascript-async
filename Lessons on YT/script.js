@@ -18,7 +18,11 @@ const getTodos = (resource) => {
     });
 };
 
-getTodos('todos/mario.json');
+getTodos('todos/mario.json').then(data => {
+    console.log('promise resolved: ', data);
+}).catch((err) => {
+    console.log('promise rejected: ', err);
+});
 
 // promise example
 
