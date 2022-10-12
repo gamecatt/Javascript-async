@@ -1,4 +1,8 @@
-// Access-Control-Allow-origin: *;
+
+// Bed example of promise chain
+
+//Good example on
+// Main/Commit/promise chain
 
 const getTodos = (resource, callback) =>{  
     const request = new XMLHttpRequest();
@@ -24,7 +28,6 @@ getTodos('todos/luigi.json' ,(err, data) => {
         console.log(data);
         getTodos('todos/shaun.json',(err, data) => {
             console.log(data);
-            
         });
     });
 });
